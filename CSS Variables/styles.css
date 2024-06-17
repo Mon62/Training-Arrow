@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: blue;
+}
+
+.header {
+  color: var(--blue)
+}
+
+.main {
+  --blue: red;
+  color: var(--blue);
+}
+
+.footer {
+  color: var(--white, green);
+}
