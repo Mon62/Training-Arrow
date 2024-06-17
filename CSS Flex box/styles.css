@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  gap: 10px;
+}
+
+.flex-box>div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.row>div {
+  background-color: DodgerBlue;
+  font-size: 25px;
+  width: 200px;
+  height: 100px;
+  color: white;
+  text-align: center;
+}
