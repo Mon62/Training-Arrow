@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        v-bind:class="className"
+        v-bind:style="{backgroundColor: bgColor, color: color, fontSize: size}"
+        v-if="important > 3"
+      >
+        Hello world!
+      </div>
+      <div v-else-if="important > 0">
+        Nice to meet you!
+      </div>
+      <div v-else>
+        Goodbye!
+      </div>
+
+      <div v-show="important">
+        See you again!
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            className: 'Hello',
+            bgColor: 'gray',
+            color: 'blue',
+            size: '25px',
+            important: -1,
+          }
+        }
+      })
+      app.mount('#app')
+    </script>
+  </body>
+</html>
