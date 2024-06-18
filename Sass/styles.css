@@ -1,0 +1,19 @@
+.header {
+  color: blue;
+  font-size: 25px;
+}
+
+.main, .footer {
+  color: red;
+  font-size: 25px;
+}
+
+.footer {
+  color: orange;
+}it 
+
+* {
+  margin: 0;
+  padding: 0;
+  background: DarkGray;
+}/*# sourceMappingURL=styles.css.map */

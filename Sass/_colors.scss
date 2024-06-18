@@ -1,0 +1,23 @@
+$blue: blue;
+$red: red;
+$orange: orange;
+
+.header {
+  color: $blue;
+  $fontSize: 25px !global;
+  font-size: $fontSize;
+}
+
+.main {
+  color: $red;
+  font-size: $fontSize;
+}
+
+.footer {
+  @extend .main;
+  color: $orange;
+}
+
+@mixin theme ($theme: DarkGray) {
+  background: $theme;
+}
