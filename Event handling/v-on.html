@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app_v1">
+      <div>Count: {{count}}</div>
+      <button
+        v-bind:style="{backgroundColor: bgColor, marginTop: mt}"
+        v-on:click="count++"
+        v-on:mouseover="bgColor = 'aqua' "
+        v-on:mouseout="bgColor = 'white' "
+      >
+        Count
+      </button>
+    </div>
+
+    <div id="app_v2" style="margin-top: 50px">
+      <div style="margin-bottom: 10px">
+        Click on a image name below to see an image of it.
+      </div>
+      <ul style="float: left">
+        <li
+          v-for="(image, index) in manyImage"
+          v-on:click="imgURL = image.url"
+          style="cursor: pointer"
+        >
+          {{image.name}}
+        </li>
+      </ul>
+      <img v-bind:src="imgURL" alt="" style="float: left; margin-left: 20px" />
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app_v1 = Vue.createApp({
+        data() {
+          return {
+            count: 0,
+            bgColor: "white",
+            mt: "10px",
+          };
+        },
+      });
+      app_v1.mount("#app_v1");
+
+      const app_v2 = Vue.createApp({
+        data() {
+          return {
+            imgURL:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST4RUongvgXqykMaO7tGS5sP5q30g5Y-rfq90qSATOCM_Mp86z3Uy9wdbVOsPy_3IE6hA&usqp=CAU",
+            manyImage: [
+              {
+                name: "image1",
+                url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST4RUongvgXqykMaO7tGS5sP5q30g5Y-rfq90qSATOCM_Mp86z3Uy9wdbVOsPy_3IE6hA&usqp=CAU",
+              },
+              {
+                name: "image2",
+                url: "https://i.pinimg.com/736x/38/2b/c7/382bc79ff37be502ac3bd2b32559f1ba.jpg",
+              },
+              {
+                name: "image3",
+                url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnMfEs2zm7NzFVNsTBU9auPH507J9lNTcmIg&s",
+              },
+            ],
+          };
+        },
+      });
+      app_v2.mount("#app_v2");
+    </script>
+  </body>
+</html>

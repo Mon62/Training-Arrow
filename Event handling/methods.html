@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <style>
+      .box {
+        background-color: tan;
+        width: 200px;
+        height: 100px;
+        margin-top: 20px;
+      }
+
+      h4 {
+        margin: 20px;
+      }
+
+      button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app_v1">
+      <div>Move the mouse pointer over the box below:</div>
+      <div
+        class="box"
+        v-on:mousemove="getMousePos"
+        v-on:mouseout="resetMousePos"
+      >
+        <h4>X: {{xPos}}</h4>
+        <h4>Y: {{yPos}}</h4>
+      </div>
+    </div>
+
+    <div id="app_v2" style="margin-top: 20px">
+      <button id="btn1" v-on:click="updateCount($event, 2)">+2</button>
+      <button id="btn2" v-on:click="updateCount($event, 5)">+5</button>
+      <button id="btn3" v-on:click="updateCount($event, -1)">-1</button>
+      <div style="margin: 10px 0px 0px 10px;">Count: {{count}}</div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app_v1 = Vue.createApp({
+        data() {
+          return {
+            xPos: 0,
+            yPos: 0,
+          };
+        },
+        methods: {
+          getMousePos(event) {
+            this.xPos = event.offsetX;
+            this.yPos = event.offsetY;
+          },
+          resetMousePos() {
+            this.xPos = 0;
+            this.yPos = 0;
+          },
+        },
+      });
+      app_v1.mount("#app_v1");
+
+      const app_v2 = Vue.createApp({
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          updateCount(e, number) {
+            this.count += number;
+          }
+        },
+      });
+      app_v2.mount("#app_v2");
+    </script>
+  </body>
+</html>
