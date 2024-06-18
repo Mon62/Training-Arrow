@@ -10,7 +10,16 @@
     <!-- <div id="app"></div> -->
     <!-- <script type="module" src="/src/main.js"></script> -->
     <div id="app">
-      <div v-bind:class="className" v-bind:style="{backgroundColor: bgColor, color: color, fontSize: size}">Hello world!</div>
+      <div
+        v-bind:class="className"
+        v-bind:style="{backgroundColor: bgColor, color: color, fontSize: size}"
+        v-if="important"
+      >
+        Hello world!
+      </div>
+      <div v-else>
+        Not style
+      </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -21,11 +30,12 @@
             className: 'Hello',
             bgColor: 'gray',
             color: 'blue',
-            size: '25px'
+            size: '25px',
+            important: false,
           }
         }
       })
-      app.mount('#app');
+      app.mount('#app')
     </script>
   </body>
 </html>
