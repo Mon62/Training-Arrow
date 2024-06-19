@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <style>
+      .box {
+        background-color: tan;
+        width: 200px;
+        height: 100px;
+        margin-top: 20px;
+      }
+
+      h4 {
+        margin: 20px;
+      }
+
+      button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app_v1">
+      <div class="text">
+        Press 'Ctrl' and 'S' in combination to generate an alert:
+      </div>
+      <textarea
+        placeholder="Start writing"
+        style="margin-top: 20px"
+        rows="3"
+        cols="20"
+        v-on:keydown.ctrl.s="showAlert"
+      ></textarea>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app_v1 = Vue.createApp({
+        methods: {
+          showAlert() {
+            alert("You pressed the 'S' and 'Ctrl' keys, in combination!");
+          },
+        },
+      });
+      app_v1.mount("#app_v1");
+    </script>
+  </body>
+</html>
